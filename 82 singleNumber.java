@@ -1,4 +1,4 @@
-public class Solution {
+public class Solution1 {
     /**
      * @param A: An integer array
      * @return: An integer
@@ -21,5 +21,42 @@ public class Solution {
         }
 
         return A[A.length - 1];
+    }
+}
+
+public class Solution2 {
+    /**
+     * @param A: An integer array
+     * @return: An integer
+     */
+    public int singleNumber(int[] A) {
+        // write your code here
+        HashSet<Integer> set = new HashSet<>();
+
+        for(int a: A)
+        {
+            if(set.contains(a))
+                set.remove(a);
+            else
+                set.add(a);
+        }
+
+        return set.iterator().next();
+    }
+}
+
+public class Solution3 {
+    /**
+     * @param A: An integer array
+     * @return: An integer
+     */
+    public int singleNumber(int[] A) {
+        // write your code here
+        int num = 0;
+
+        for(int a: A)
+            num ^= a;
+
+        return num;
     }
 }
